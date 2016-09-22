@@ -1,0 +1,21 @@
+{
+  "name": "bvanhoekelen/php-compressor",
+  "description": "PHP file compressor for css and js. Compress multiple files to one simple .css and .js file!",
+  "keywords": ["php", "file", "compressor", "css", "js", "javascript", "Cascading Style Sheets", "Style Sheets"],
+  "license" : "Apache License 2.0",
+  "authors" : [
+    {
+      "name": "B. van Hoekelen",
+      "homepage": "https://github.com/bvanhoekelen/php-compressor"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "another-vendor/package": "1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "bvanhoekelen\\php-compressor\\": "src/"
+    }
+  },
+}
