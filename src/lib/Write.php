@@ -19,7 +19,7 @@ class Write {
     {
         $combine = $this->compressor->files->combine;
         $path = $this->compressor->destination->get();
-        $staticFileName = 'compressor';
+        $staticFileName = 'compressor/take';
         $this->compressorFile = [];
         foreach ($combine as $extension => $content)
         {
@@ -28,8 +28,8 @@ class Write {
             $content = $this->getSoftwareComment($extension) . $content;
             if( ! file_put_contents($file, $content))
                 new ErrorMessage($this,
-                    'Fail to write to file' . $file,
-                    'Check if destination path and permission!');
+                    'Fail to write to file "' . $file . '"',
+                    'Check if destination path and permission! <br>Note the folder that you has specify "' . $path . '" need a "compressor" folder.');
             else
                 $this->compressorFile[] = ['extension' => $extension, 'file' => $file, 'date' => time()] ;
 
