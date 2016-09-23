@@ -1,8 +1,8 @@
-<?php
+<?php namespace PhpCompressor\Lib;
 
 class Compressor {
 
-    const COMPRESSOR_VERSION = '1.0.0';
+    const COMPRESSOR_VERSION = '1.0.3';
 
     public $performance;        // Store performance information
     public $paths;              // Stores the paths to css and js filse
