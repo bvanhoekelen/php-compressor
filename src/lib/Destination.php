@@ -12,9 +12,11 @@ class Destination {
     /*
      * Set destination
      */
-    public function set($destination)
+    public function set($inputDestination)
     {
-        if(substr($destination,0,1) == "/" and $destination != "/")
+        $destination = getcwd() . "/" . $inputDestination;
+
+        if(substr($inputDestination,0,1) == "/" and $inputDestination != "/")
             new ErrorMessage($this,
                 'Destination can not begin with a slash!',
                 'Remove the first slash by path "<span class="highlighted-error" ">/</span>' . substr($destination, 1) . '"!',
@@ -33,7 +35,7 @@ class Destination {
                 ['current dir' => getcwd(), 'destination' => $destination]);
 
         // Check if compressor folder exists
-        if( ! is_dir( getcwd() . $destination . "compressor/"))
+        if( ! is_dir( $destination . "compressor/"))
             new ErrorMessage($this,
                 'Folder "compressor" is missing!',
                 'Create the folder <span class="highlighted">compressor/</span> in "' . $destination . '".',

@@ -66,6 +66,7 @@ class Files {
                 $this->combine[$extension] = "";
                 foreach ($files as $file)
                 {
+                    $this->combine[$extension] .= "\n/* add file " . $file['filename'] . "." . $file['extension'] . " */\n";
                     $this->combine[$extension] .= file_get_contents($file['pathAndFile']);
                 }
                 $this->compressor->performance->stop(__FUNCTION__, $extension);
