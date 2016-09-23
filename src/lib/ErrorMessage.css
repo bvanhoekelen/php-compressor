@@ -1,0 +1,43 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    background: ghostwhite;
+}
+
+.box{
+    position: relative;
+    display: block;
+    text-align: center;
+}
+.panel{
+    margin: 50px;
+    position: relative;
+    display: inline-block;
+    border: 2px solid darkgrey;
+    width: 70%;
+    max-width: 800px;
+    min-height: 200px;
+    padding: 40px;
+    text-align: left;
+    background-color: gainsboro;
+}
+
+.panel h1{
+    text-align: center;
+}
+
+.highlighted-error{
+    border: 1px solid red;
+    padding: 0 4px;
+    background-color: white;
+}
+
+.highlighted{
+    border: 1px solid gray;
+    padding: 0 4px;
+    background-color: white;
+}

@@ -1,4 +1,17 @@
 body{
-    background-color: gray;
+    background: gray;
+    background: linear-gradient(green, greenyellow);
     padding: 10px;
+    text-align: center;
 }
+
+body:after{
+    font-size: 50px;
+    font-family: Georgia;
+    content: "php-compressor successfully installed";
+    color: white;
+    text-shadow: 2px 2px 4px black;
+    text-align: center;
+    height: 200px;
+}
+

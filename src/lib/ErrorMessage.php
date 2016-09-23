@@ -13,27 +13,34 @@ class ErrorMessage {
      */
     public function __construct($class, $message, $hint = '', $var = [], $die = true)
     {
-        echo '<h1>' . $message . '</h1>';
-        echo '<h3>Hint:</h3>';
-        echo '<p>' . $hint . '</p>';
+        echo '<html>';
+        echo '<head>';
+            echo '<title>' . $message . '</title>';
 
-        if($var)
-        {
-            echo '<h3>Vars:</h3>';
-            echo '<pre>';
-            print_r($var);
-            echo '</pre>';
-        }
+            echo '<style>';
+                include_once 'ErrorMessage.css';
+            echo '</style>';
+        echo '</head><body>';
 
+        echo '<div class="box">';
+            echo '<div class="panel">';
+                echo '<h1>' . $message . '</h1>';
+                echo '<h3>Hint:</h3>';
+                echo '<p>' . $hint . '</p>';
 
+                if($var)
+                {
+                    echo '<h3>Vars:</h3>';
+                    echo '<pre>';
+                    print_r($var);
+                    echo '</pre>';
+                }
 
-        echo '<h3>Supper class this:</h3>';
-        echo '<pre>';
-        print_r($class);
-        echo '</pre>';
-
-        echo '___________________________________________________<br>';
-        echo '<i>PhpCompressor error message v' . Compressor::COMPRESSOR_VERSION . '</i>';
+            echo '___________________________________________________<br>';
+            echo '<i>PhpCompressor error message v' . Compressor::COMPRESSOR_VERSION . '</i>';
+            echo '</div>';
+        echo '</div>';
+        echo '</body></html>';
 
         if($die)
             die;
