@@ -12,6 +12,7 @@ if($production)
     PhpCompressor::run(['resources/css/', 'resources/js/'], 'public/');
 
 // Place in html <head> section to access the assets
-PhpCompressor::get('public/', ['css','js']);
+//<link href='/compressor/take.css' rel='stylesheet'>
+//<script src='/compressor/take.js'></script>
 
 

@@ -25,16 +25,4 @@ class PhpCompressor {
         $compressor->run();
         $compressor->clean();
     }
-
-    /*
-     * Create html tag
-     */
-    public static function get($path, Array $assets)
-    {
-        if(self::$compressor)
-            echo self::getCompressor()->getAssets();
-        elseif($path)
-            echo self::getCompressor()->getAssetsFormInput($path, $assets);
-    }
-
 }
