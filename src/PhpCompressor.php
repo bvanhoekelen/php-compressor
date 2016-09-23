@@ -1,9 +1,6 @@
-<?php
+<?php namespace PhpCompressor;
 
-function __autoload($classname) {
-    $filename = "lib/". $classname .".php";
-    include_once($filename);
-}
+use PhpCompressor\Lib\Compressor;
 
 class PhpCompressor {
 

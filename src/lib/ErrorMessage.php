@@ -1,4 +1,4 @@
-<?php
+<?php namespace PhpCompressor\Lib;
 
 /**
  * Created by PhpStorm.

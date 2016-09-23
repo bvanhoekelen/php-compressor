@@ -1,11 +1,5 @@
-<?php
+<?php namespace PhpCompressor\Lib;
 
-/**
- * Created by PhpStorm.
- * User: bartvanhoekelen
- * Date: 23-09-16
- * Time: 00:38
- */
 class CompressorType {
 
     const COMPRESSOR_TYPE_FULL = 'COMPRESSOR_TYPE_FULL';

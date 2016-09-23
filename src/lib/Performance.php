@@ -1,11 +1,5 @@
-<?php
+<?php namespace PhpCompressor\Lib;
 
-/**
- * Created by PhpStorm.
- * User: bartvanhoekelen
- * Date: 23-09-16
- * Time: 14:15
- */
 class Performance {
 
     private $data =[];
