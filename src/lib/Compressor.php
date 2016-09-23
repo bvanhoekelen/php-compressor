@@ -84,7 +84,7 @@ class Compressor {
         }
         $this->performance->stop(__FUNCTION__);
 
-        $return .= "<!-- Php-compressor finsh in " . $this->performance->get('ms', 'full') . " -->";
+        $return .= "<!-- Php-compressor finished in " . $this->performance->get('ms', 'full') . " -->";
 
         return $return;
     }
@@ -97,14 +97,14 @@ class Compressor {
         $return = "";
         foreach ($assets as $asset)
         {
-            $file = $path . 'compressor.' . $asset;
+            $file = $path . 'compressor/take.' . $asset;
             switch ($asset)
             {
                 case 'css':
-                    $return .= "<link href='" . $file . "' rel='stylesheet'>\n";
+                    $return .= "    <link href='" . $file . "' rel='stylesheet'>\n";
                     break;
                 case 'js':
-                    $return .= "<script src='" . $file . "'></script>\n";
+                    $return .= "    <script src='" . $file . "'></script>\n";
                     break;
                 default:
                     new ErrorMessage($this, 'Extension support "' . $asset . '" in function "' . __FUNCTION__ . '" not exist');
