@@ -2,3 +2,4 @@
 .DS_Store
 tests/public/
 vendor/
+composer.lock
