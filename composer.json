@@ -14,7 +14,7 @@
   },
   "autoload": {
     "psr-4": {
-      "bvanhoekelen\\php-compressor\\": "src/"
+      "PhpCompressor\\": "src/"
     }
   }
 }
