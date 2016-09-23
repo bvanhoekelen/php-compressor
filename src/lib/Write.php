@@ -18,7 +18,7 @@ class Write {
     public function out()
     {
         $combine = $this->compressor->files->combine;
-        $path = $this->compressor->destination->get();
+        $path = getcwd() . $this->compressor->destination->get();
         $staticFileName = 'compressor/take';
         $this->compressorFile = [];
         foreach ($combine as $extension => $content)

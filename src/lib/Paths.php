@@ -29,19 +29,19 @@ class Paths {
             new ErrorMessage($this,
                 'Path can not begin with a slash!',
                 'Remove the first slash by path "<span class="highlighted-error" ">/</span>' . substr($path, 1) . '"!',
-                ['path' => $path]);
+                ['current dir' => getcwd(), 'path' => $path]);
 
         if(substr($path, -1, 1) != "/")
             new ErrorMessage($this,
                 'Path has to end with a slash!',
                 'Add slash to the end "' . substr($path, 0, -1) . '<span class="highlighted-error" ">/</span>"!',
-                ['path' => $path]);
+                ['current dir' => getcwd(), 'path' => $path]);
 
         if( ! is_dir($path))
             new ErrorMessage($this,
                 'Path to "' . $path . '" does not exists!',
                 'Check the `paths` path!',
-                ['path' => $path]);
+                ['current dir' => getcwd(), 'path' => $path]);
 
         if( ! isset($this->paths[$path]))
             $this->paths[] = $path;
