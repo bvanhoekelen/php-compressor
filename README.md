@@ -26,6 +26,11 @@ use PhpCompressor\PhpCompressor;
 //Place the code in the `public function boot()`.
 if(config('app.debug'))
     PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);
+    // <loccation> (INPUT) directory where the .CSS, .FCSS and .JS files are
+    // <destination> (OUTPUT) directory that contains the 'compressor' folder.
+    // The output of PHP compressor set in the 'compressor' folder as 'take.css' and 'take.js'
+    // PhpCompressor::run( [ <loccation> , <location>, ... ], <destination> );
+    // Run PHP compressor only in the developor environment, not in production!
 ```
 
 
@@ -36,7 +41,7 @@ Place the code in the `<head>` from the html file.
 <script src="{{ asset('/compressor/take.js') }}"></script>
 ```
 
-## Composer
+## Composer project
 Get the source code by running the composer comment in the command line 
 ```{r, engine='bash', count_lines}
  $ composer require bvanhoekelen/php-compressor
@@ -56,9 +61,6 @@ $production = false;
 // Run php conpressor
 if( ! $production ) // DON'T RUN ON PRODUCTION !!
     PhpCompressor::run(['resources/css/', 'resources/js/'], 'public/');
-    //
-    // Explanation
-    //
     // <loccation> (INPUT) directory where the .CSS, .FCSS and .JS files are
     // <destination> (OUTPUT) directory that contains the 'compressor' folder.
     // The output of PHP compressor set in the 'compressor' folder as 'take.css' and 'take.js'
