@@ -13,17 +13,22 @@
 # Instalation
 
 ## Laravel
-Open the `composer.json` file and place this line under `require`.
+Open the `composer.json` file and place the line in `require`.
 ```json
  "bvanhoekelen/php-compressor": "^1.0"
 ```
 
-Run PHP compressor by place the code before the view is drawn.
-Open the `AppServiceProvider.php` located in `App\Providers\`.
-Place the code in the public function `boot()`.
+Run PHP compressor by place the code before the view is drawn. Open the `AppServiceProvider.php` located in `App\Providers\`.
+Add namespace.
 ```php
-        if(config('app.debug'))
-            PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);
+use PhpCompressor\PhpCompressor;
+```
+
+Place the code in the `public function boot()`.
+```php
+if(config('app.debug'))
+    PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);
+    
 ```
 
 
