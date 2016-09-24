@@ -178,10 +178,10 @@ class Config {
     private function setPathRoot()
     {
         $this->pathRoot = "";
-        if($_SERVER['DOCUMENT_ROOT'])
-            $this->pathRoot = $_SERVER['DOCUMENT_ROOT'];
-        elseif(function_exists('base_path'))
+        if(function_exists('base_path'))
             $this->pathRoot = base_path();
+        elseif($_SERVER['DOCUMENT_ROOT'])
+            $this->pathRoot = $_SERVER['DOCUMENT_ROOT'];
     }
 
 }
