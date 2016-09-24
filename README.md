@@ -10,6 +10,16 @@
 
 <p align="center"><img src="/assets/banner.png" alt="php-compressor" /></p>
 
+
+# Operation
+
+\\\\ HIER UITLEG OVER HOE HET WERKT
+
+# Help and docs
+
+[Help](/docs/help.md)
+[Packagist](https://packagist.org/packages/bvanhoekelen/php-compressor)
+
 # Instalation
 
 ## Laravel
@@ -24,15 +34,9 @@ Open the `AppServiceProvider.php` located in `App\Providers\`.
 use PhpCompressor\PhpCompressor;
 
 //Place the code in the `public function boot()`.
-if(config('app.debug'))
+if(config('app.debug')) // DON'T RUN ON PRODUCTION !!
     PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);
-    // <loccation> (INPUT) directory where the .CSS, .FCSS and .JS files are
-    // <destination> (OUTPUT) directory that contains the 'compressor' folder.
-    // The output of PHP compressor set in the 'compressor' folder as 'take.css' and 'take.js'
-    // PhpCompressor::run( [ <loccation> , <location>, ... ], <destination> );
-    // Run PHP compressor only in the developor environment, not in production!
 ```
-
 
 Place the code in the `<head>` from the html file.
 ```html
@@ -61,12 +65,6 @@ $production = false;
 // Run php conpressor
 if( ! $production ) // DON'T RUN ON PRODUCTION !!
     PhpCompressor::run(['resources/css/', 'resources/js/'], 'public/');
-    // <loccation> (INPUT) directory where the .CSS, .FCSS and .JS files are
-    // <destination> (OUTPUT) directory that contains the 'compressor' folder.
-    // The output of PHP compressor set in the 'compressor' folder as 'take.css' and 'take.js'
-    // PhpCompressor::run( [ <loccation> , <location>, ... ], <destination> );
-    // Run PHP compressor only in the developor environment, not in production!
-    
 ```
 
 Place the code in the `<head>` from the html file.
@@ -75,3 +73,4 @@ Place the code in the `<head>` from the html file.
 <link href='compressor/take.css' rel='stylesheet'>
 <script src='compressor/take.js'></script>
 ```
+
