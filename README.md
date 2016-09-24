@@ -18,7 +18,7 @@ Open the `composer.json` file and place the line in `require`.
  "bvanhoekelen/php-compressor": "^1.0"
 ```
 
-Run PHP compressor by place the code before the view is drawn. Open the `AppServiceProvider.php` located in `App\Providers\`.
+Open the `AppServiceProvider.php` located in `App\Providers\`.
 Add namespace.
 ```php
 use PhpCompressor\PhpCompressor;
@@ -34,9 +34,9 @@ if(config('app.debug'))
 
 Place the code in the `<head>` from the html file.
 ```html
-    <!-- PHP compressor -->
-    <link href="{{ asset('/compressor/take.css') }}" rel="stylesheet">
-    <script src="{{ asset('/compressor/take.js') }}"></script>
+<!-- PHP compressor -->
+<link href="{{ asset('/compressor/take.css') }}" rel="stylesheet">
+<script src="{{ asset('/compressor/take.js') }}"></script>
 ```
 
 ## Composer
