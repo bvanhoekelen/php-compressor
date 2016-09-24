@@ -11,9 +11,13 @@
 <p align="center"><img src="/assets/banner.png" alt="php-compressor" /></p>
 
 ## Highlight
-- The simple merge several files into one file
-- Live compiler, no additional program is needed
-- The ability to set variables, available for each file
+- Merge several files into one file
+- Live compiler, fast and no additional program is needed
+- The ability to set variables » [see variable in help](/docs/home.md)
+- Support .css, .fcss and .js
+- Required no changes on the live server
+- Reduced server load and client load time of each page
+- Optimizing assets for higher rank in google search 
 
 ## Workflow
 
