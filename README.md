@@ -18,15 +18,15 @@
 Root/
 └── Resources/
     └── css/
-    |   ├── table.css
-    |   ├── alert.css
-    |   ├── button.css
-    |   ...
+    │   ├── table.css
+    │   ├── alert.css
+    │   ├── button.css
+    │   ...
     └── js/
-        ├── table.css
-        ├── alert.css
-        ├── button.css
-        ...
+    │   ├── table.css
+    │   ├── alert.css
+    │   ├── button.css
+    │   ...
     ..
 ```
 
