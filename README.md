@@ -19,16 +19,13 @@ Open the `composer.json` file and place the line in `require`.
 ```
 
 Open the `AppServiceProvider.php` located in `App\Providers\`.
-Add namespace.
 ```php
+// Add namespace at the top
 use PhpCompressor\PhpCompressor;
-```
 
-Place the code in the `public function boot()`.
-```php
+//Place the code in the `public function boot()`.
 if(config('app.debug'))
     PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);
-    
 ```
 
 
