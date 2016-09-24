@@ -12,7 +12,7 @@
 
 ## Instalation
 
-### Source
+### Get source
 
 #### Composer
 ```{r, engine='bash', count_lines}
@@ -20,25 +20,48 @@
 ```
 
 #### Laravel
+Open the 'composer.js'.
 ```json
 // Puth this line in the composer.js under 'require'
 
  "bvanhoekelen/php-compressor": "^1.0"
 ```
 
-___
-
----
-
-### Your project
+### Run compressor
 
 #### Composer
+
 ```php
- $ composer require bvanhoekelen/php-compressor
+
+// Require vender autolaod
+require_once('../vendor/autoload.php');
+
+// Use namespace
+use PhpCompressor\PhpCompressor;
+
+// Switch which determines if environment is production
+$production = true;
+
+// Run php conpressor
+if( ! $production) // DON'T RUN ON PRODUCTION !!
+    PhpCompressor::run(['resources/css/', 'resources/js/'], 'public/');
+    // <loccation> (INPUT) directory where the .CSS, .FCSS and .JS files are
+    // <destination> (OUTPUT) directory that contains the 'compressor' folder.
+    // The output of php compressor set in the 'compressor' folder as 'take.css' and 'take.js'
+    // PhpCompressor::run( [ <loccation> , <location> ], <destination> );
+    // Run php compressor only in the developor environment, not in production!
+    
 ```
 
 #### Laravel
 ```php
+// Puth this line in the composer.js under 'require'
+
+ "bvanhoekelen/php-compressor": "^1.0"
+```
+
+### Get results
+```html
 // Puth this line in the composer.js under 'require'
 
  "bvanhoekelen/php-compressor": "^1.0"
