@@ -16,9 +16,8 @@
 \\\\ HIER UITLEG OVER HOE HET WERKT
 
 # Help and docs
-
-[Help](/docs/help.md)
-[Packagist](https://packagist.org/packages/bvanhoekelen/php-compressor)
+- [Help](/docs/help.md)
+- [Packagist](https://packagist.org/packages/bvanhoekelen/php-compressor)
 
 # Instalation
 
