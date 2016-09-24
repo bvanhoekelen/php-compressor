@@ -24,12 +24,12 @@
 
 ### Input
 ```
-<b>Input<b>                                                         <b>Output<b>
-Root/                                                               Root/
-└── Resources/                                                      └── Public/
-    └── css/                                                            └── compressor/
-    │   ├── table.css                                                       ├── take.css
-    │   ├── alert.css                                                       └── take.js
+*Input*                                                         *Output*
+Root/                                           .                Root/
+└── Resources/                   .. ............;;.              └── Public/
+    └── css/                      ..PHP compresspr;;.                └── compressor/
+    │   ├── table.css           . . ::::::::::::;;:'                    ├── take.css
+    │   ├── alert.css                           :'                      └── take.js
     │   ├── button.css
     │   ...
     └── js/
