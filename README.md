@@ -12,15 +12,29 @@
 
 ## Instalation
 
-### Get source code
+### Source
 
 #### Composer
 ```{r, engine='bash', count_lines}
- composer require bvanhoekelen/php-compressor
+ $ composer require bvanhoekelen/php-compressor
 ```
 
 #### Laravel
-```{r, engine='bash', count_lines}
+```json
+// Puth this line in the composer.js under 'require'
+
+ "bvanhoekelen/php-compressor": "^1.0"
+```
+
+### Your project
+
+#### Composer
+```php
+ $ composer require bvanhoekelen/php-compressor
+```
+
+#### Laravel
+```php
 // Puth this line in the composer.js under 'require'
 
  "bvanhoekelen/php-compressor": "^1.0"
