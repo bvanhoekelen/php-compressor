@@ -2,10 +2,10 @@
 
 # php-compressor
 Php compress for css and js files
-<center>
-![php composer](assets/banner.png)
-</center>
 
+[p align="center"]
+![php composer](assets/banner.png)
+[/p]
 
 ## Instalation
 
@@ -17,9 +17,3 @@ Php compress for css and js files
 
 
 ```
-
-
-img[src$="centerme"] {
-  display:block;
-  margin: 0 auto;
-}
