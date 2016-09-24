@@ -17,7 +17,8 @@
 - Support .css, .fcss and .js
 - Required no changes on the live server
 - Reduced server load and client load time of each page
-- Optimizing assets for higher rank in google search 
+- Optimizing assets for higher rank in google search
+- Easy to install » [Install guide](#Instalation)
 
 ## Workflow
 
