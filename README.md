@@ -23,35 +23,44 @@
 
 ## Workflow
 - Input
-    - Code can be split into files for a better overview
+    - Contains the building blocks
+    - Folder can before the public folder, no access for external users
+    - For a better overview u can split code in into several files
+    - No `@include`, files are automatically merged
     - Ordering happened by name
 - Output
     - Each extension has its own file
     
+- PHP compressor run
+    - <loccation> (INPUT) directory where the .CSS, .FCSS and .JS files are
+    - <destination> (OUTPUT) directory that contains the 'compressor' folder.
+    - The output of PHP compressor set in the 'compressor' folder as 'take.css' and 'take.js'
+    - PhpCompressor::run( [ <loccation> , <location>, ... ], <destination> );
+    - Run PHP compressor only in the developor environment, not in production!
+   
 ```
     (Input)                                                           (Output)
     
 Root/                                           .               Root/
-└── Resources/             .. ..................;;.             └── Public/
-    └── css/                  .. PHP compresspr ;;;;.               └── compressor/
+└── Resources/             .. ..................;;.             └── Public/ (!)
+    └── css/ (!)              .. PHP compresspr ;;;;.               └── compressor/ (static)
     │   ├── table.css    . . .::::::::::::::::::;;:'                   ├── take.css
     │   ├── alert.css                           :'                     └── take.js
     │   ├── button.css
     │   ...
-    └── js/
+    └── js/  (!)
     │   ├── table.css
     │   ├── alert.css
     │   ├── button.css
     │   ...
     ..
 
-// Php code
+ (PHP compressor)
+ 
  PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);   
     
 ```
 
-- PHP compressor run
-    - sdf
 
 
 # Help, docs and links
