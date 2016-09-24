@@ -13,12 +13,26 @@
 # Instalation
 
 ## Laravel
-Open the `composer.js` file and place this line in the composer.js under `require`.
+Open the `composer.json` file and place this line under `require`.
 ```json
  "bvanhoekelen/php-compressor": "^1.0"
 ```
 
+Run PHP compressor by place the code before the view is drawn.
+Open the `AppServiceProvider.php` located in `App\Providers\`.
+Place the code in the public function `boot()`.
+```php
+        if(config('app.debug'))
+            PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);
+```
 
+
+Place the code in the `<head>` from the html file.
+```html
+    <!-- PHP compressor -->
+    <link href="{{ asset('/compressor/take.css') }}" rel="stylesheet">
+    <script src="{{ asset('/compressor/take.js') }}"></script>
+```
 
 ## Composer
 Get the source code by running the composer comment in the command line 
@@ -53,6 +67,7 @@ if( ! $production ) // DON'T RUN ON PRODUCTION !!
 
 Place the code in the `<head>` from the html file.
 ```html
+<!-- PHP compressor -->
 <link href='compressor/take.css' rel='stylesheet'>
 <script src='compressor/take.js'></script>
 ```
