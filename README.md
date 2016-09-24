@@ -24,11 +24,12 @@
 
 ### Input
 ```
-Root/
-└── Resources/
-    └── css/
-    │   ├── table.css
-    │   ├── alert.css
+<b>Input<b>                                                         <b>Output<b>
+Root/                                                               Root/
+└── Resources/                                                      └── Public/
+    └── css/                                                            └── compressor/
+    │   ├── table.css                                                       ├── take.css
+    │   ├── alert.css                                                       └── take.js
     │   ├── button.css
     │   ...
     └── js/
@@ -37,15 +38,6 @@ Root/
     │   ├── button.css
     │   ...
     ..
-```
-
-### Output
-```
-Root/
-└── Public/
-    └── compressor/
-        ├── take.css
-        └── take.js
 ```
 
 
