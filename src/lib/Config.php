@@ -5,6 +5,9 @@ class Config {
     // Public
     public $compressorType;         // Define the compressor type
     public $useFileExtensions;      // Collecting files only with this extension
+    public $pathDestination;        // Collecting files only with this extension
+    public $compressFolder;         // Folder for output
+    public $compressFilename;       // Name of output file
 
     // Private
     private $config;
@@ -16,6 +19,8 @@ class Config {
         $this->config = false;
         $this->compressor = $compressor;
         $this->configItems = false;
+        $this->compressFolder = 'compressor/';
+        $this->compressFilename = 'take';
         $this->compressorType = new CompressorType();
         $this->useFileExtensions = ['css', 'js'];
     }
@@ -83,6 +88,53 @@ class Config {
     private function configCompressorType($value)
     {
         $this->compressorType->set($value);
+    }
+
+    /*
+     * Config item compressor type
+     */
+    private function configDestination($value)
+    {
+        $value = ($value == "/") ?  "" : $value;
+        $destination = getcwd() . '/' . $value;
+
+        // Check if ends with slach
+        if(substr($destination, -1) != '/')
+            $destination .= '/';
+
+        // Add compressor folder if it is missing
+        if(substr($destination, -11) != $this->compressFolder)
+            $destination .= $this->compressFolder;
+
+        // Check if folder exists
+        if( ! is_dir($destination))
+        {
+            // Check normal folder exists
+            $normalFolder = substr($destination, 0, -11);
+
+            if( ! is_dir($normalFolder))
+            {
+                new ErrorMessage($this,
+                    'Destination not exists!',
+                    'Check permissions of if folder <span class="highlighted">&lt;destination&gt;</span> exist!<br>Error in line: <code>PhpCompressor::run(&lt;location&gt;, <span class="highlighted">&lt;destination&gt;</span>)</code>',
+                    ['current dir' => getcwd(), 'destination' => $normalFolder]);
+            }
+            else
+            {
+                // Create compressor folder
+                mkdir($destination, 0755, true);
+
+                if( ! is_dir($destination))
+                {
+                    new ErrorMessage($this,
+                        'Folder <span class="highlighted">' . $this->compressFolder . '</span> not exist!',
+                        'Create folder <span class="highlighted">' . $this->compressFolder . '</span> in ' . $normalFolder,
+                        ['current dir' => getcwd(), 'destination' => $normalFolder, '  required ' => $destination]);
+                }
+            }
+        }
+
+        $this->pathDestination = $destination;
     }
 
 }

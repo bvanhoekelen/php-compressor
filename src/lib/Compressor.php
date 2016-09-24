@@ -19,7 +19,6 @@ class Compressor {
         $this->performance = new Performance();
         $this->config = new Config($this);
         $this->paths = new Paths();
-        $this->destination = new Destination();
         $this->files = new Files($this);
         $this->write = new Write($this);
 
@@ -68,7 +67,7 @@ class Compressor {
 
     public function setDestination($destination)
     {
-        $this->destination->set($destination);
+        $this->config->set('Destination', $destination);
     }
 
 }

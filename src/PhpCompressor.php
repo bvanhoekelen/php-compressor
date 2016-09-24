@@ -16,7 +16,7 @@ class PhpCompressor {
     /*
      * Run the compressor
      */
-    public static function run(Array $paths, $destination, $config = [])
+    public static function run(Array $paths, $destination = '', $config = [])
     {
         $compressor = self::getCompressor();
         $compressor->setPaths($paths);
