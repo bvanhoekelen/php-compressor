@@ -13,29 +13,31 @@
 ## Highlight
 - Merge several files into one file
 - Live compiler, fast and no additional program is needed
-- Allows user to write code that can be use other projects » reuse code
-- The ability to set variables » [see variable in help](/docs/home.md)
-- Support .css, .fcss and .js
+- Allows user to write code that can be used in other projects » [Code reuse](https://en.wikipedia.org/wiki/Code_reuse)
+- The ability to set variables » [see variable in help](https://github.com/bvanhoekelen/php-compressor/wiki)
+- Support .css, .fcss and .js files
 - Required no changes on the live server
 - Reduced server load and client load time of each page
-- Optimizing assets for higher rank in google search results » [PageSpeed](https://developers.google.com/speed/pagespeed/insights/)
+- Optimizing assets for higher rank in google search results » [PageSpeed](https://developers.google.com/speed/pagespeed/)
 - Easy to install » [instalation](#instalation)
+- Support Laravel framework » [Laravel](https://laravel.com)
 
 ## Workflow
 - Input
     - Contains the building blocks
-    - Folder can before the public folder, no access for external users
-    - For a better overview u can split code in into several files
+    - Folder can be placed before the public folder, no access for external users
+    - For a better overview you can split easy your code in into several files
     - No `@include`, files are automatically merged
     - Ordering happened by name
     
 - Output
     - Each extension has its own file
+    - Use normal html tag `<link href='compressor/take.css' rel='stylesheet'>` and `<script src='compressor/take.js'></script>` to grab it
     
 - PHP compressor run (PhpCompressor::run())
     - &lt;loccation&gt; (INPUT) directory where the .CSS, .FCSS and .JS files are
-    - &lt;destination&gt; (OUTPUT) directory that contains the 'compressor' folder.
-    - The output of PHP compressor set in the 'compressor' folder as 'take.css' and 'take.js'
+    - &lt;destination&gt; (OUTPUT) directory that contains the `compressor/` folder. _Note. de destination *path* is without the `compressor/`. This wil set in automatic_
+    - The output of PHP compressor wil set in the `compressor/` folder as `take.*`
     - Run PHP compressor only in the developor environment, not in production!
    
 ```php
@@ -63,7 +65,7 @@ Root/                                           .               Root/
 ```
 
 # Help, docs and links
-- [Help](/docs/help.md)
+- [Help](https://github.com/bvanhoekelen/php-compressor/wiki)
 - [Packagist](https://packagist.org/packages/bvanhoekelen/php-compressor)
 
 # Instalation
