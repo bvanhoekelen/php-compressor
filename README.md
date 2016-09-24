@@ -28,11 +28,12 @@
     - For a better overview u can split code in into several files
     - No `@include`, files are automatically merged
     - Ordering happened by name
+    
 - Output
     - Each extension has its own file
     
-- PHP compressor run
-    - ==loccation== (INPUT) directory where the .CSS, .FCSS and .JS files are
+- PHP compressor run (PhpCompressor::run())
+    - &lt;loccation&gt; (INPUT) directory where the .CSS, .FCSS and .JS files are
     - &lt;destination&gt; (OUTPUT) directory that contains the 'compressor' folder.
     - The output of PHP compressor set in the 'compressor' folder as 'take.css' and 'take.js'
     - Run PHP compressor only in the developor environment, not in production!
@@ -57,7 +58,7 @@ Root/                                           .               Root/
                              (PHP compressor)
  
  PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);
- PhpCompressor::run( [ `loccation` , <location>, ... ], ==destination== );
+ PhpCompressor::run( [ <loccation> , <location>, ... ], <destination> ); // explanation!
     
 ```
 
