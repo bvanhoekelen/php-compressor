@@ -61,7 +61,7 @@ Root/                                           .               Root/
     
 ```
 
-```json
+```javascript
     (Input)                                                           (Output)
     
 Root/                                           .               Root/
@@ -84,7 +84,7 @@ Root/                                           .               Root/
     
 ```
 
-```html
+```bin
     (Input)                                                           (Output)
     
 Root/                                           .               Root/
