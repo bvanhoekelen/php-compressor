@@ -17,10 +17,10 @@
 - The ability to set variables » [see variable in help](https://github.com/bvanhoekelen/php-compressor/wiki)
 - Support .css, .fcss and .js files
 - Required no changes on the live server
-- Reduced server load and client load time of each page
-- Optimizing assets for higher rank in google search results » [PageSpeed](https://developers.google.com/speed/pagespeed/)
+- Reducing server load and client load time
+- Optimizing assets for a higher rank in google search results » [PageSpeed](https://developers.google.com/speed/pagespeed/)
 - Easy to install » [instalation](#instalation)
-- Support Laravel framework » [Laravel](https://laravel.com)
+- Support for Laravel framework » [Laravel](https://laravel.com)
 
 ## Workflow
 - Input
@@ -73,7 +73,7 @@ Root/                                           .               Root/
 ## Install with Laravel
 Open the `composer.json` file and place the line in `require`.
 ```json
- "bvanhoekelen/php-compressor": "^1.0"
+ "bvanhoekelen/php-compressor": "^1.1"
 ```
 
 Open the `AppServiceProvider.php` located in `App\Providers\`.
@@ -81,12 +81,12 @@ Open the `AppServiceProvider.php` located in `App\Providers\`.
 // Add namespace at the top
 use PhpCompressor\PhpCompressor;
 
-//Place the code in the `public function boot()`.
-if(config('app.debug')) // DON'T RUN ON PRODUCTION !!
+// Place the code in the `public function boot()`.
+if(config('app.debug')) // DON'T RUN IN PRODUCTION !!
     PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);
 ```
 
-Place the code in the `<head>` from the html file.
+Place the code in `<head>` from the html file.
 ```html
 <!-- PHP compressor -->
 <link href="{{ asset('/compressor/take.css') }}" rel="stylesheet">
@@ -99,7 +99,7 @@ Get the source code by running the composer comment in the command line
  $ composer require bvanhoekelen/php-compressor
 ```
 
-Run PHP compressor by place the code before the view is draw.
+Run PHP compressor by place code before the view is draw.
 ```php
 // Require vender autoload
 require_once('../vendor/autoload.php');
@@ -111,11 +111,11 @@ use PhpCompressor\PhpCompressor;
 $production = false;
 
 // Run php conpressor
-if( ! $production ) // DON'T RUN ON PRODUCTION !!
+if( ! $production ) // DON'T RUN IN PRODUCTION !!
     PhpCompressor::run(['resources/css/', 'resources/js/'], 'public/');
 ```
 
-Place the code in the `<head>` from the html file.
+Place the code in `<head>` from the html file.
 ```html
 <!-- PHP compressor -->
 <link href='compressor/take.css' rel='stylesheet'>
