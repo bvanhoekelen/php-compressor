@@ -25,7 +25,7 @@ Open the `composer.js` file and place this line in the composer.js under `requir
  "bvanhoekelen/php-compressor": "^1.0"
 ```
 
-### Run compressor
+### Run PHP compressor
 
 #### Composer
 Placse this code before the view is draw.
@@ -47,9 +47,9 @@ if( ! $production ) // DON'T RUN ON PRODUCTION !!
     //
     // <loccation> (INPUT) directory where the .CSS, .FCSS and .JS files are
     // <destination> (OUTPUT) directory that contains the 'compressor' folder.
-    // The output of php compressor set in the 'compressor' folder as 'take.css' and 'take.js'
+    // The output of PHP compressor set in the 'compressor' folder as 'take.css' and 'take.js'
     // PhpCompressor::run( [ <loccation> , <location>, ... ], <destination> );
-    // Run php compressor only in the developor environment, not in production!
+    // Run PHP compressor only in the developor environment, not in production!
     
 ```
 
