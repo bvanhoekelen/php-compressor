@@ -21,14 +21,14 @@ Open the `composer.js` file and place this line in the composer.js under `requir
 
 
 ## Composer
-Get the source code by running de composer comment in the command line 
+Get the source code by running the composer comment in the command line 
 ```{r, engine='bash', count_lines}
  $ composer require bvanhoekelen/php-compressor
 ```
 
-Placse this code before the view is draw.
+Run PHP compressor by place the code before the view is draw.
 ```php
-// Require vender autolaod
+// Require vender autoload
 require_once('../vendor/autoload.php');
 
 // Use namespace
@@ -51,9 +51,8 @@ if( ! $production ) // DON'T RUN ON PRODUCTION !!
     
 ```
 
-## Get results
+Place the code in the `<head>` from the html file.
 ```html
-// Puth this line in the composer.js under 'require'
-
- "bvanhoekelen/php-compressor": "^1.0"
+<link href='compressor/take.css' rel='stylesheet'>
+<script src='compressor/take.js'></script>
 ```
