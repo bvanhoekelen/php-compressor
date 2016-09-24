@@ -38,7 +38,7 @@
     - PhpCompressor::run( [ <loccation> , <location>, ... ], <destination> );
     - Run PHP compressor only in the developor environment, not in production!
    
-```
+```php
     (Input)                                                           (Output)
     
 Root/                                           .               Root/
@@ -61,6 +61,51 @@ Root/                                           .               Root/
     
 ```
 
+```json
+    (Input)                                                           (Output)
+    
+Root/                                           .               Root/
+└── Resources/             .. ..................;;.             └── Public/ (!)
+    └── css/ (!)              .. PHP compresspr ;;;;.               └── compressor/ (static)
+    │   ├── table.css    . . .::::::::::::::::::;;:'                   ├── take.css
+    │   ├── alert.css                           :'                     └── take.js
+    │   ├── button.css
+    │   ...
+    └── js/  (!)
+    │   ├── table.css
+    │   ├── alert.css
+    │   ├── button.css
+    │   ...
+    ..
+
+ (PHP compressor)
+ 
+ PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);   
+    
+```
+
+```html
+    (Input)                                                           (Output)
+    
+Root/                                           .               Root/
+└── Resources/             .. ..................;;.             └── Public/ (!)
+    └── css/ (!)              .. PHP compresspr ;;;;.               └── compressor/ (static)
+    │   ├── table.css    . . .::::::::::::::::::;;:'                   ├── take.css
+    │   ├── alert.css                           :'                     └── take.js
+    │   ├── button.css
+    │   ...
+    └── js/  (!)
+    │   ├── table.css
+    │   ├── alert.css
+    │   ├── button.css
+    │   ...
+    ..
+
+ (PHP compressor)
+ 
+ PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);   
+    
+```
 
 
 # Help, docs and links
