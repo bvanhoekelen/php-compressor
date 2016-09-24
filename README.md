@@ -3,9 +3,10 @@
 # php-compressor
 Php compress for css and js files
 
-[p align="center"]
+<p align="center">
 ![php composer](assets/banner.png)
-[/p]
+img{ float: right; }
+</p>
 
 ## Instalation
 
