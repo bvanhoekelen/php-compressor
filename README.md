@@ -13,6 +13,7 @@
 ## Highlight
 - Merge several files into one file
 - Live compiler, fast and no additional program is needed
+- Allows user to write code that can be use other projects » reuse code
 - The ability to set variables » [see variable in help](/docs/home.md)
 - Support .css, .fcss and .js
 - Required no changes on the live server
@@ -21,15 +22,20 @@
 - Easy to install » [instalation](#instalation)
 
 ## Workflow
-
-### Input
+- Input
+    - Code can be split into files for a better overview
+    - Ordering happened by name
+- Output
+    - Each extension has its own file
+    
 ```
-*Input*                                                         *Output*
-Root/                                           .                Root/
-└── Resources/                   .. ............;;.              └── Public/
-    └── css/                      ..PHP compresspr;;.                └── compressor/
-    │   ├── table.css           . . ::::::::::::;;:'                    ├── take.css
-    │   ├── alert.css                           :'                      └── take.js
+    (Input)                                                           (Output)
+    
+Root/                                           .               Root/
+└── Resources/             .. ..................;;.             └── Public/
+    └── css/                  .. PHP compresspr ;;;;.               └── compressor/
+    │   ├── table.css    . . .::::::::::::::::::;;:'                   ├── take.css
+    │   ├── alert.css                           :'                     └── take.js
     │   ├── button.css
     │   ...
     └── js/
@@ -38,7 +44,14 @@ Root/                                           .                Root/
     │   ├── button.css
     │   ...
     ..
+
+// Php code
+ PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);   
+    
 ```
+
+- PHP compressor run
+    - sdf
 
 
 # Help, docs and links
