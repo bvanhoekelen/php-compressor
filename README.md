@@ -13,7 +13,21 @@
 
 # Operation
 
-\\\\ HIER UITLEG OVER HOE HET WERKT
+### Input
+
+### Output
+```
+bootstrap/
+├── css/
+│   ├── bootstrap.css
+│   ├── bootstrap.css.map
+│   ├── bootstrap.min.css
+│   └── bootstrap.min.css.map
+└── js/
+    ├── bootstrap.js
+    └── bootstrap.min.js
+```
+
 
 # Help, docs and links
 - [Help](/docs/help.md)
