@@ -1,6 +1,6 @@
 
 
-## PHP compressor
+# PHP compressor
 [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?maxAge=2592000&style=flat-square)](https://github.com/bvanhoekelen/php-compressor/blob/master/LICENSE)
 [![Packagist Prerelease](https://img.shields.io/packagist/vpre/bvanhoekelen/php-compressor.svg?maxAge=2592000&style=flat-square)](https://packagist.org/packages/bvanhoekelen/php-compressor)
 [![Packagist](https://img.shields.io/packagist/dt/bvanhoekelen/php-compressor.svg?maxAge=2592000&style=flat-square)](https://packagist.org/packages/bvanhoekelen/php-compressor)
@@ -10,24 +10,22 @@
 
 <p align="center"><img src="/assets/banner.png" alt="php-compressor" /></p>
 
-## Instalation
+# Instalation
 
-### Get source
-
-#### Composer
-```{r, engine='bash', count_lines}
- $ composer require bvanhoekelen/php-compressor
-```
-
-#### Laravel
+## Laravel
 Open the `composer.js` file and place this line in the composer.js under `require`.
 ```json
  "bvanhoekelen/php-compressor": "^1.0"
 ```
 
-### Run PHP compressor
 
-#### Composer
+
+## Composer
+Get the source code by running de composer comment in the command line 
+```{r, engine='bash', count_lines}
+ $ composer require bvanhoekelen/php-compressor
+```
+
 Placse this code before the view is draw.
 ```php
 // Require vender autolaod
@@ -53,14 +51,7 @@ if( ! $production ) // DON'T RUN ON PRODUCTION !!
     
 ```
 
-#### Laravel
-```php
-// Puth this line in the composer.js under 'require'
-
- "bvanhoekelen/php-compressor": "^1.0"
-```
-
-### Get results
+## Get results
 ```html
 // Puth this line in the composer.js under 'require'
 
