@@ -20,10 +20,8 @@
 ```
 
 #### Laravel
-Open the 'composer.js'.
+Open the zcomposer.js` file and place this line in the composer.js under `require`.
 ```json
-// Puth this line in the composer.js under 'require'
-
  "bvanhoekelen/php-compressor": "^1.0"
 ```
 
@@ -32,7 +30,6 @@ Open the 'composer.js'.
 #### Composer
 
 ```php
-
 // Require vender autolaod
 require_once('../vendor/autoload.php');
 
@@ -40,15 +37,18 @@ require_once('../vendor/autoload.php');
 use PhpCompressor\PhpCompressor;
 
 // Switch which determines if environment is production
-$production = true;
+$production = false;
 
 // Run php conpressor
-if( ! $production) // DON'T RUN ON PRODUCTION !!
+if( ! $production ) // DON'T RUN ON PRODUCTION !!
     PhpCompressor::run(['resources/css/', 'resources/js/'], 'public/');
+    //
+    // Explanation
+    //
     // <loccation> (INPUT) directory where the .CSS, .FCSS and .JS files are
     // <destination> (OUTPUT) directory that contains the 'compressor' folder.
     // The output of php compressor set in the 'compressor' folder as 'take.css' and 'take.js'
-    // PhpCompressor::run( [ <loccation> , <location> ], <destination> );
+    // PhpCompressor::run( [ <loccation> , <location>, ... ], <destination> );
     // Run php compressor only in the developor environment, not in production!
     
 ```
