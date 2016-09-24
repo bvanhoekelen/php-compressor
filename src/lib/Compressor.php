@@ -5,7 +5,6 @@ class Compressor {
     const COMPRESSOR_VERSION = '1.1.0';
 
     public $performance;        // Store performance information
-    public $paths;              // Stores the paths to css and js filse
     public $config;             // Store config settings
     public $files;              // Store files form the paths
     public $write;              // Write files to destination
@@ -18,10 +17,8 @@ class Compressor {
         // Performance test
         $this->performance = new Performance();
         $this->config = new Config($this);
-        $this->paths = new Paths();
         $this->files = new Files($this);
         $this->write = new Write($this);
-
     }
 
     /*
@@ -62,12 +59,12 @@ class Compressor {
 
     public function setPaths(Array $paths)
     {
-        $this->paths->setMultiple($paths);
+        $this->config->set('PathLocationMultiple', $paths);
     }
 
     public function setDestination($destination)
     {
-        $this->config->set('Destination', $destination);
+        $this->config->set('PathDestination', $destination);
     }
 
 }

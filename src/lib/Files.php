@@ -19,7 +19,7 @@ class Files {
     public function collectFiles()
     {
         $this->files = [];
-        $paths = $this->compressor->paths->get();
+        $paths = $this->compressor->config->pathLocations;
         $extensions = $this->compressor->config->useFileExtensions;
 
         // Set default pats

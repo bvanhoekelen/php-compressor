@@ -5,7 +5,8 @@ class Config {
     // Public
     public $compressorType;         // Define the compressor type
     public $useFileExtensions;      // Collecting files only with this extension
-    public $pathDestination;        // Collecting files only with this extension
+    public $pathDestination;        // Path for destination
+    public $pathLocations;          // Path for locations
     public $compressFolder;         // Folder for output
     public $compressFilename;       // Name of output file
 
@@ -19,6 +20,7 @@ class Config {
         $this->config = false;
         $this->compressor = $compressor;
         $this->configItems = false;
+        $this->pathLocations = [];
         $this->compressFolder = 'compressor/';
         $this->compressFilename = 'take';
         $this->compressorType = new CompressorType();
@@ -91,9 +93,9 @@ class Config {
     }
 
     /*
-     * Config item compressor type
+     * Config path destination
      */
-    private function configDestination($value)
+    private function configPathDestination($value)
     {
         $value = ($value == "/") ?  "" : $value;
         $destination = getcwd() . '/' . $value;
@@ -135,6 +137,39 @@ class Config {
         }
 
         $this->pathDestination = $destination;
+    }
+
+    /*
+     * Config patch locations
+     */
+    private function configPathLocationMultiple(Array $array)
+    {
+        foreach ($array as $item)
+        {
+            $this->configPathLocation($item);
+        }
+    }
+
+    /*
+     * Config patch location
+     */
+    private function configPathLocation($value)
+    {
+        $value = ($value == "/") ?  "" : $value;
+        $location = getcwd() . '/' . $value;
+
+        // Check if ends with slach
+        if(substr($location, -1) != '/')
+            $location .= '/';
+
+        if( ! is_dir($location))
+            new ErrorMessage($this,
+                'Location not exist!',
+                'Check if folder <span class="highlighted">' . $location . '</span> exist or permission. <br>Error in line: <code>PhpCompressor::run( <span class="highlighted">&lt;location&gt;</span>, &lt;destination&gt;)</code>',
+                ['current dir' => getcwd(), 'location' => $location]);
+
+        $this->pathLocations[] = $location;
+
     }
 
 }

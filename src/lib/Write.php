@@ -46,10 +46,10 @@ class Write {
         switch ($extension)
         {
             case 'css':
-                return "/* css compile by php compressor (https://github.com/bvanhoekelen/php-compressor) */\n";
+                return "/* css compile by php compressor (https://github.com/bvanhoekelen/php-compressor) on " . date('Y-m-d H:i:s') . " */\n";
                 break;
             case 'js':
-                return "/* js compile by php compressor (https://github.com/bvanhoekelen/php-compressor) */\n";
+                return "/* js compile by php compressor (https://github.com/bvanhoekelen/php-compressor) on " . date('Y-m-d H:i:s') . "  */\n";
                 break;
             default:
                 new ErrorMessage($this, 'Extension support "' . $extension . '" in function "' . __FUNCTION__ . '" not exist');
