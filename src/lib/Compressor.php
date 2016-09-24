@@ -2,11 +2,10 @@
 
 class Compressor {
 
-    const COMPRESSOR_VERSION = '1.0.3';
+    const COMPRESSOR_VERSION = '1.1.0';
 
     public $performance;        // Store performance information
     public $paths;              // Stores the paths to css and js filse
-    public $destination;        // Destination of the one css and js file
     public $config;             // Store config settings
     public $files;              // Store files form the paths
     public $write;              // Write files to destination
