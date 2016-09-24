@@ -57,7 +57,7 @@ Root/                                           .               Root/
                              (PHP compressor)
  
  PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);
- PhpCompressor::run( [ ==loccation== , ==location==, ... ], ==destination== );
+ PhpCompressor::run( [ `loccation` , <location>, ... ], ==destination== );
     
 ```
 
