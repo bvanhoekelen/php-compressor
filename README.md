@@ -32,10 +32,9 @@
     - Each extension has its own file
     
 - PHP compressor run
-    - <loccation> (INPUT) directory where the .CSS, .FCSS and .JS files are
-    - <destination> (OUTPUT) directory that contains the 'compressor' folder.
+    - ==loccation== (INPUT) directory where the .CSS, .FCSS and .JS files are
+    - &lt;destination&gt; (OUTPUT) directory that contains the 'compressor' folder.
     - The output of PHP compressor set in the 'compressor' folder as 'take.css' and 'take.js'
-    - PhpCompressor::run( [ <loccation> , <location>, ... ], <destination> );
     - Run PHP compressor only in the developor environment, not in production!
    
 ```php
@@ -55,58 +54,12 @@ Root/                                           .               Root/
     │   ...
     ..
 
- (PHP compressor)
+                             (PHP compressor)
  
- PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);   
+ PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);
+ PhpCompressor::run( [ ==loccation== , ==location==, ... ], ==destination== );
     
 ```
-
-```javascript
-    (Input)                                                           (Output)
-    
-Root/                                           .               Root/
-└── Resources/             .. ..................;;.             └── Public/ (!)
-    └── css/ (!)              .. PHP compresspr ;;;;.               └── compressor/ (static)
-    │   ├── table.css    . . .::::::::::::::::::;;:'                   ├── take.css
-    │   ├── alert.css                           :'                     └── take.js
-    │   ├── button.css
-    │   ...
-    └── js/  (!)
-    │   ├── table.css
-    │   ├── alert.css
-    │   ├── button.css
-    │   ...
-    ..
-
- (PHP compressor)
- 
- PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);   
-    
-```
-
-```bin
-    (Input)                                                           (Output)
-    
-Root/                                           .               Root/
-└── Resources/             .. ..................;;.             └── Public/ (!)
-    └── css/ (!)              .. PHP compresspr ;;;;.               └── compressor/ (static)
-    │   ├── table.css    . . .::::::::::::::::::;;:'                   ├── take.css
-    │   ├── alert.css                           :'                     └── take.js
-    │   ├── button.css
-    │   ...
-    └── js/  (!)
-    │   ├── table.css
-    │   ├── alert.css
-    │   ├── button.css
-    │   ...
-    ..
-
- (PHP compressor)
- 
- PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);   
-    
-```
-
 
 # Help, docs and links
 - [Help](/docs/help.md)
