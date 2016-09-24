@@ -9,6 +9,7 @@ class Config {
     public $pathLocations;          // Path for locations
     public $compressFolder;         // Folder for output
     public $compressFilename;       // Name of output file
+    public $logFile;                // Name of the file for logbook. File + extension
 
     // Private
     private $config;
@@ -25,6 +26,7 @@ class Config {
         $this->compressFilename = 'take';
         $this->compressorType = new CompressorType();
         $this->useFileExtensions = ['css', 'js'];
+        $this->logFile = 'log.php';
     }
 
 

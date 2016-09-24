@@ -31,6 +31,7 @@ class Compressor {
 
         // Action
         $this->files->collectFiles();
+        $this->files->checkForChange();
         $this->files->combine();
         $this->write->out();
 
