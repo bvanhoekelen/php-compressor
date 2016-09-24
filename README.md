@@ -15,13 +15,13 @@
 
 \\\\ HIER UITLEG OVER HOE HET WERKT
 
-# Help and docs
+# Help, docs and links
 - [Help](/docs/help.md)
 - [Packagist](https://packagist.org/packages/bvanhoekelen/php-compressor)
 
 # Instalation
 
-## Laravel
+## Install with Laravel
 Open the `composer.json` file and place the line in `require`.
 ```json
  "bvanhoekelen/php-compressor": "^1.0"
@@ -44,7 +44,7 @@ Place the code in the `<head>` from the html file.
 <script src="{{ asset('/compressor/take.js') }}"></script>
 ```
 
-## Composer project
+## Install with composer
 Get the source code by running the composer comment in the command line 
 ```{r, engine='bash', count_lines}
  $ composer require bvanhoekelen/php-compressor
