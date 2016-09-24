@@ -26,6 +26,10 @@
  "bvanhoekelen/php-compressor": "^1.0"
 ```
 
+___
+
+---
+
 ### Your project
 
 #### Composer
