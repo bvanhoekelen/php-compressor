@@ -20,7 +20,7 @@
 ```
 
 #### Laravel
-Open the zcomposer.js` file and place this line in the composer.js under `require`.
+Open the `composer.js` file and place this line in the composer.js under `require`.
 ```json
  "bvanhoekelen/php-compressor": "^1.0"
 ```
@@ -28,7 +28,7 @@ Open the zcomposer.js` file and place this line in the composer.js under `requir
 ### Run compressor
 
 #### Composer
-
+Placse this code before the view is draw.
 ```php
 // Require vender autolaod
 require_once('../vendor/autoload.php');
