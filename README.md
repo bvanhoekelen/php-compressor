@@ -10,8 +10,11 @@
 
 <p align="center"><img src="/assets/banner.png" alt="php-compressor" /></p>
 
+- The simple merge several files into one file
+- Live compiler, no additional program is needed
+- The ability to set variables, available for each file
 
-# Operation
+## Operation
 
 ### Input
 ```
