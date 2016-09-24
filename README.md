@@ -15,3 +15,9 @@ Php compress for css and js files
 
 
 ```
+
+
+img[src$="centerme"] {
+  display:block;
+  margin: 0 auto;
+}
