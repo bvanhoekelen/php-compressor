@@ -17,10 +17,12 @@ class Write {
      */
     public function out()
     {
+
         $combine = $this->compressor->files->combine;
         $path = $this->compressor->config->pathDestination;
         $staticFileName = $this->compressor->config->compressFilename;
         $this->compressorFile = [];
+
         foreach ($combine as $extension => $content)
         {
             $this->compressor->performance->set(__FUNCTION__, $extension);
@@ -36,6 +38,26 @@ class Write {
 
             $this->compressor->performance->stop(__FUNCTION__, $extension);
         }
+
+        if(count($this->compressorFile))
+            $this->updateLog();
+    }
+
+    public function updateLog()
+    {
+        $logFile = $this->compressor->config->getPahtAndLogFile();
+
+        // Log
+        $log = [];
+        $log['log'] = [];
+        $log['version'] = Compressor::COMPRESSOR_VERSION;
+        $log['pathDestination'] = $this->compressor->config->pathDestination;
+        $log['pathLocations'] = $this->compressor->config->pathLocations;
+        $log['compressorFile'] = $this->compressorFile;
+        $log['files'] = $this->compressor->files->files;
+
+        // Update log
+        file_put_contents($logFile, '<?php //'. json_encode($log));
     }
 
     /*

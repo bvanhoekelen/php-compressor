@@ -59,7 +59,7 @@ Root/                                           .               Root/
 
                              (PHP compressor)
  
- PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);
+ PhpCompressor::run(['resources/assets/css/', 'resources/assets/js/'], 'public/');
  PhpCompressor::run( [ <loccation> , <location>, ... ], <destination> ); // explanation!
     
 ```
@@ -71,9 +71,9 @@ Root/                                           .               Root/
 # Instalation
 
 ## Install with Laravel
-Open the `composer.json` file and place the line in `require`.
-```json
- "bvanhoekelen/php-compressor": "^1.1"
+Get PHP compressor by running the composer command in the command line. 
+```{r, engine='bash', count_lines}
+ $ composer require bvanhoekelen/php-compressor
 ```
 
 Open the `AppServiceProvider.php` located in `App\Providers\`.
@@ -82,7 +82,7 @@ Open the `AppServiceProvider.php` located in `App\Providers\`.
 use PhpCompressor\PhpCompressor;
 
 // Place the code in the `public function boot()`.
-if(config('app.debug')) // DON'T RUN IN PRODUCTION !!
+if(config('app.debug')) // DON'T USE ON PRODUCTION !!
     PhpCompressor::run(['resources/assets/css/', 'resources/assets/js/'], 'public/');
 ```
 
@@ -94,7 +94,7 @@ Place the code in `<head>` from the html file.
 ```
 
 ## Install with composer
-Get the source code by running the composer comment in the command line 
+Get PHP compressor by running the composer command in the command line. 
 ```{r, engine='bash', count_lines}
  $ composer require bvanhoekelen/php-compressor
 ```
@@ -111,7 +111,7 @@ use PhpCompressor\PhpCompressor;
 $production = false;
 
 // Run php conpressor
-if( ! $production ) // DON'T RUN IN PRODUCTION !!
+if( ! $production ) // DON'T USE ON PRODUCTION !!
     PhpCompressor::run(['resources/css/', 'resources/js/'], 'public/');
 ```
 
