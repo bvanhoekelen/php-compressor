@@ -83,7 +83,7 @@ use PhpCompressor\PhpCompressor;
 
 // Place the code in the `public function boot()`.
 if(config('app.debug')) // DON'T RUN IN PRODUCTION !!
-    PhpCompressor::run(['../resources/assets/css/', '../resources/assets/js/']);
+    PhpCompressor::run(['resources/assets/css/', 'resources/assets/js/'], 'public/');
 ```
 
 Place the code in `<head>` from the html file.

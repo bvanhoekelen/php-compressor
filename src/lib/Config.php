@@ -7,6 +7,7 @@ class Config {
     public $useFileExtensions;      // Collecting files only with this extension
     public $pathDestination;        // Path for destination
     public $pathLocations;          // Path for locations
+    public $pathRoot;               // Path of the root
     public $compressFolder;         // Folder for output
     public $compressFilename;       // Name of output file
     public $logFile;                // Name of the file for logbook. File + extension
@@ -27,8 +28,10 @@ class Config {
         $this->compressorType = new CompressorType();
         $this->useFileExtensions = ['css', 'js'];
         $this->logFile = 'log.php';
-    }
 
+        // Set
+        $this->setPathRoot();
+    }
 
     public function setMultiple(Array $configs)
     {
@@ -100,7 +103,7 @@ class Config {
     private function configPathDestination($value)
     {
         $value = ($value == "/") ?  "" : $value;
-        $destination = getcwd() . '/' . $value;
+        $destination = $this->pathRoot . '/' . $value;
 
         // Check if ends with slach
         if(substr($destination, -1) != '/')
@@ -121,7 +124,7 @@ class Config {
                 new ErrorMessage($this,
                     'Destination not exists!',
                     'Check permissions of if folder <span class="highlighted">&lt;destination&gt;</span> exist!<br>Error in line: <code>PhpCompressor::run(&lt;location&gt;, <span class="highlighted">&lt;destination&gt;</span>)</code>',
-                    ['current dir' => getcwd(), 'destination' => $normalFolder]);
+                    ['current dir' => $this->pathRoot, 'destination' => $normalFolder]);
             }
             else
             {
@@ -133,7 +136,7 @@ class Config {
                     new ErrorMessage($this,
                         'Folder <span class="highlighted">' . $this->compressFolder . '</span> not exist!',
                         'Create folder <span class="highlighted">' . $this->compressFolder . '</span> in ' . $normalFolder,
-                        ['current dir' => getcwd(), 'destination' => $normalFolder, '  required ' => $destination]);
+                        ['current dir' => $this->pathRoot, 'destination' => $normalFolder, '  required ' => $destination]);
                 }
             }
         }
@@ -158,7 +161,7 @@ class Config {
     private function configPathLocation($value)
     {
         $value = ($value == "/") ?  "" : $value;
-        $location = getcwd() . '/' . $value;
+        $location = $this->pathRoot . '/' . $value;
 
         // Check if ends with slach
         if(substr($location, -1) != '/')
@@ -168,10 +171,19 @@ class Config {
             new ErrorMessage($this,
                 'Location not exist!',
                 'Check if folder <span class="highlighted">' . $location . '</span> exist or permission. <br>Error in line: <code>PhpCompressor::run( <span class="highlighted">&lt;location&gt;</span>, &lt;destination&gt;)</code>',
-                ['current dir' => getcwd(), 'location' => $location]);
+                ['current dir' => $this->pathRoot, 'location' => $location]);
 
         $this->pathLocations[] = $location;
 
+    }
+
+    private function setPathRoot()
+    {
+        $this->pathRoot = "";
+        if(function_exists('base_path'))
+            $this->pathRoot = base_path();
+        elseif($_SERVER['DOCUMENT_ROOT'])
+            $this->pathRoot = $_SERVER['DOCUMENT_ROOT'];
     }
 
 }
