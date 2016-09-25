@@ -2,7 +2,7 @@
 
 class Compressor {
 
-    const COMPRESSOR_VERSION = '1.1.3';
+    const COMPRESSOR_VERSION = '1.1.4';
 
     public $performance;        // Store performance information
     public $config;             // Store config settings
