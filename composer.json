@@ -1,6 +1,6 @@
 {
   "name": "bvanhoekelen/php-compressor",
-  "description": "PHP file compressor for css and js. Compress multiple files to one simple .css and .js file!",
+  "description": "PHP compressor merge several css and js files into one file",
   "keywords": ["php", "file", "php-compressor", "compressor", "css", "fcss", "Fast CSS", "js", "javascript", "Cascading Style Sheets", "Style Sheets", "fast-css.com", "laravel"],
   "license" : "Apache License 2.0",
   "authors" : [
