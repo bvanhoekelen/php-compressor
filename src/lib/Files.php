@@ -2,9 +2,9 @@
 
 class Files {
 
-    public $files;                  // Store filse
     private $compressor;            // Supper class
-    public  $combine;
+    public $files;                  // Store filse
+    public $combine;
 
     public function __construct(Compressor $compressor)
     {
@@ -41,11 +41,11 @@ class Files {
                         $fileInfo['date'] = filemtime($path . $file);
                         $fileInfo['path'] = $path;
                         $fileInfo['pathAndFile'] = $path . $file;
+                        $fileInfo['modified'] = 1;
                         unset($fileInfo['dirname']);
                         $this->files[$fileInfo['extension']][] = $fileInfo;
                     }
                 }
-
                 closedir($dh);
             }
         }
@@ -56,107 +56,51 @@ class Files {
      */
     public function checkForChange()
     {
-        $logFile = $this->compressor->config->pathDestination . $this->compressor->config->logFile;
-        if(file_exists($logFile))
+        $log = $this->compressor->config->getLogFileContent();
+
+        // Exit if log not exist
+        if( ! $log)
+            return false;
+
+        // Check for change
+        $logFiles = (isset($log->files)) ? $log->files : [];
+
+        // Find logFile
+        function findLogFile($logFiles, $file)
         {
-            $log = file_get_contents($logFile);
-            $log = json_decode($log);
+            $logFiles = $logFiles;
+            $checkFileStack = (isset($logFiles->{$file['extension']})) ? $logFiles->{$file['extension']} : [];
 
-            // Check version
-            $logVersion = (isset($log->version)) ? $log->version : false;
-
-            if(Compressor::COMPRESSOR_VERSION != $logVersion)
+            foreach ($checkFileStack as $logFile)
             {
-                unlink($logFile);
-                return;
-            }
-
-            try
-            {
-                // Check for change
-                $logFiles = (isset($log->files)) ? $log->files : [];
-
-                foreach ($this->files as $extension => $files)
+                if($logFile->pathAndFile == $file['pathAndFile'])
                 {
-                    $modified = false;
-                    foreach ($files as $file)
-                    {
-                        // Find file in log
-                        $checkFileStack = (isset($logFiles->{$file['extension']})) ? $logFiles->{$file['extension']} : [];
-
-                        foreach ($checkFileStack as $checkFile)
-                        {
-                            if($file['basename'] == $checkFile->basename)
-                            {
-                                echo "Hit";
-                                if($file['date'] == $checkFile->date)
-                                {
-                                    $file['modified'] = false;
-                                }
-                                else
-                                {
-                                    $file['modified'] = true;
-                                    $modified = 1;
-                                }
-                            }
-                            else
-                            {
-                                echo "=";
-                                $file['modified'] = false;
-                            }
-                        }
-//                        echo '<h1>checkFileStack</h1><pre>'; print_r($checkFileStack); echo '</pre>';
-//                        echo '<h1>ff</h1><pre>'; print_r($log->files->{$file['extension']}); echo '</pre>';
-//                        echo '<h1>Info</h1><pre>'; print_r($file); echo '</pre>';
-
-                        echo $modified;
-
-                    }
-//                    echo '<h1>Info</h1><pre>'; print_r($extension); echo '</pre>';
-//                    exit;
+                    return $logFile;
                 }
-
-                echo '<h1>Info</h1><pre>'; print_r($this->files); echo '</pre>';
-                exit;
-
-
-
-//                foreach ($logFiles as $logExtension => $logFilesOnExtension)
-//                {
-//                    $modified = false;
-//                    foreach ($logFilesOnExtension as $logFile)
-//                    {
-//                        foreach ($this->files[$logExtension] as $key => $checkFile)
-//                        {
-//                            if ($checkFile['basename'] == $logFile->basename)
-//                            {
-//                                if($checkFile['date'] == $logFile->date)
-//                                {
-//                                    $modified = true;
-//                                    $this->files[$logExtension][$key]['modified'] = 0;
-//                                }
-//                                else
-//                                {
-//                                    $this->files[$logExtension][$key]['modified'] = 1;
-//                                }
-//
-//                            }
-//                        }
-//                        echo '<h1>Info</h1><pre>'; print_r($this->files[$logExtension]); echo '</pre>';
-//                    }
-//
-//                    if($modified)
-//                    {
-//
-//                    }
-
-//                }
             }
-            catch (\Exception $e)
+
+            return false;
+        }
+
+        try
+        {
+            foreach ($this->files as $extension => $files)
             {
-                unlink($logFile);
-                return;
+                foreach ($files as $key => $file)
+                {
+                    // Find file in log
+                    $logFile = findLogFile($logFiles, $file);
+
+                    if($logFile and $logFile->date == $file['date'])
+                        $this->files[$extension][$key]['modified'] = false;
+                    else
+                        $this->files[$extension][$key]['modified'] = true;
+                }
             }
+        }
+        catch (\Exception $e)
+        {
+            return false;
         }
     }
 
@@ -167,12 +111,16 @@ class Files {
     {
         $this->combine = [];
 
-        echo '<h1>Info</h1><pre>'; print_r($this->files); echo '</pre>';
-        exit;
-
         foreach ($this->files as $extension => $files)
         {
-            if( count($files) )
+            // Combine only if file is change
+            $extensionModified = 0;
+            foreach ($files as $file)
+            {
+                if($file['modified'] != false) $extensionModified = 1;
+            }
+
+            if( $extensionModified and count($files) )
             {
                 $this->compressor->performance->set(__FUNCTION__, $extension);
                 $this->combine[$extension] = "";
@@ -182,6 +130,8 @@ class Files {
                     $this->combine[$extension] .= file_get_contents($file['pathAndFile']);
                 }
                 $this->compressor->performance->stop(__FUNCTION__, $extension);
+
+                $this->combine[$extension] .= "\n/* \n * Take." . $file['extension'] . " done in " . $this->compressor->performance->get('μs', __FUNCTION__, $extension) . " \n */\n";
             }
 
         }

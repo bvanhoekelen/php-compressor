@@ -10,7 +10,7 @@ class Config {
     public $pathRoot;               // Path of the root
     public $compressFolder;         // Folder for output
     public $compressFilename;       // Name of output file
-    public $logFile;                // Name of the file for logbook. File + extension
+    public $logFile;                // Name of the file for logbook.
 
     // Private
     private $config;
@@ -66,6 +66,35 @@ class Config {
     public function get()
     {
         return $this->config;
+    }
+
+    public function getPahtAndLogFile()
+    {
+        return $this->compressor->config->pathDestination . $this->compressor->config->logFile;
+    }
+
+    /*
+     * Return logfile content
+     */
+    public function getLogFileContent()
+    {
+        $logFile = $this->getPahtAndLogFile();
+        if ( ! file_exists($logFile))
+            return false;
+
+        // Read content
+        $log = file_get_contents($logFile);
+        $log = json_decode(substr($log, 8));
+
+        // Check version
+        $logVersion = (isset($log->version)) ? $log->version : false;
+        if(Compressor::COMPRESSOR_VERSION != $logVersion)
+        {
+            unlink($logFile);
+            return false;
+        }
+
+        return $log;
     }
 
 /*

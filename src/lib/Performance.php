@@ -58,7 +58,7 @@ class Performance {
                 return round($diff * 1) . $format;
                 break;
             default:
-                new ErrorMessage('Performance format ' . $format . ' not exist');
+                new ErrorMessage($this, 'Performance format ' . $format . ' not exist');
         }
 
 
