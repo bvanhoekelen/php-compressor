@@ -36,7 +36,7 @@ class Files {
                 while (($file = readdir($dh)) !== false)
                 {
                     $fileInfo = pathinfo($file);
-                    if (in_array($fileInfo['extension'], $extensions))
+                    if (isset($fileInfo['extension']) and in_array($fileInfo['extension'], $extensions))
                     {
                         $fileInfo['date'] = filemtime($path . $file);
                         $fileInfo['path'] = $path;
