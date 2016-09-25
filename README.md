@@ -82,7 +82,7 @@ Open the `AppServiceProvider.php` located in `App\Providers\`.
 use PhpCompressor\PhpCompressor;
 
 // Place the code in the `public function boot()`.
-if(config('app.debug')) // DON'T RUN IN PRODUCTION !!
+if(config('app.debug')) // DON'T USE ON PRODUCTION !!
     PhpCompressor::run(['resources/assets/css/', 'resources/assets/js/'], 'public/');
 ```
 
@@ -111,7 +111,7 @@ use PhpCompressor\PhpCompressor;
 $production = false;
 
 // Run php conpressor
-if( ! $production ) // DON'T RUN IN PRODUCTION !!
+if( ! $production ) // DON'T USE ON PRODUCTION !!
     PhpCompressor::run(['resources/css/', 'resources/js/'], 'public/');
 ```
 
