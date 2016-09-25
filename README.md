@@ -51,9 +51,9 @@ Root/                                           .               Root/
     │   ├── button.css
     │   ...
     └── js/  (!)
-    │   ├── table.css
-    │   ├── alert.css
-    │   ├── button.css
+    │   ├── table.js
+    │   ├── alert.js
+    │   ├── button.js
     │   ...
     ..
 
