@@ -1,7 +1,7 @@
 <?php namespace Tests\Unit;
 
 
-class TestUnit extends \PHPUnit\Framework\TestCase  {
+class TestUnitTest extends \PHPUnit\Framework\TestCase  {
     protected $stack;
 
     protected function setUp()
