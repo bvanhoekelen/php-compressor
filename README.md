@@ -5,8 +5,8 @@
 [![Packagist Prerelease](https://img.shields.io/packagist/vpre/bvanhoekelen/php-compressor.svg?style=flat-square)](https://packagist.org/packages/bvanhoekelen/php-compressor)
 [![Packagist](https://img.shields.io/packagist/dt/bvanhoekelen/php-compressor.svg?style=flat-square)](https://packagist.org/packages/bvanhoekelen/php-compressor)
 [![Github issues](https://img.shields.io/github/issues/bvanhoekelen/php-compressor.svg?style=flat-square)](https://github.com/bvanhoekelen/php-compressor/issues)
-[![Travis branch](https://img.shields.io/travis/bvanhoekelen/php-compressor/master.svg?style=flat-square)](https://travis-ci.org/bvanhoekelen/php-compressor)
-[![Travis branch](https://img.shields.io/travis/bvanhoekelen/php-compressor/develop.svg?style=flat-square)](https://travis-ci.org/bvanhoekelen/php-compressor)
+[![Travis branch](https://img.shields.io/travis/bvanhoekelen/php-compressor/master.svg?style=flat-square)](https://travis-ci.org/bvanhoekelen/php-compressor) (Master)
+[![Travis branch](https://img.shields.io/travis/bvanhoekelen/php-compressor/develop.svg?style=flat-square)](https://travis-ci.org/bvanhoekelen/php-compressor) (Develop)
 
 <p align="center"><img src="/assets/banner.png" alt="php-compressor" /></p>
 
