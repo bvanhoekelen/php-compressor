@@ -1,5 +1,5 @@
 .idea/
 .DS_Store
-tests/public/
+tests/file/public/
 vendor/
 composer.lock
